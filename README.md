@@ -7,10 +7,11 @@ Reads the exif keys from the first row and the filenames of the pictures from th
 
 ### Example:
 
-__|___A_____|___B___|___C___|
-1_|_________|artist_|_place_|
-2_|_1.jpg___|__ann__|_berlin|
-3_|house.jpg|__ron__|_______|
+|     |   A    |   B   |   C   |
+|-----|--------|-------|-------|
+|  1  |        | artist| place |
+|  2  | 1.jpg  | ann   | berlin|
+|  3  |house.jpg| ron   |       |
 
 Will do:
 attach exif data to 1.jpg, artist: ann, place: berlin
