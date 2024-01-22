@@ -15,6 +15,7 @@ Reads the exif keys from the first row and the filenames of the pictures from th
 
 Will do:
 attach exif data to 1.jpg, artist: ann, place: berlin
+
 attach exif data to house.jpg, artist: ron
 
 ## Installation
