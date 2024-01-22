@@ -1,10 +1,12 @@
+#!/usr/bin/env ruby
+
 require_relative '../lib/photo_processor'
 
 table_path = ARGV[0] # Path to the XLSX file
 folder_path = ARGV[1] # Path to the folder containing photos
 
 if table_path.nil? || folder_path.nil?
-  puts "Usage: ruby bin/app.rb path/to/table.xlsx path/to/photos_folder"
+  puts "Usage: bin/app.rb path/to/table.xlsx path/to/photos_folder"
   exit(1)
 end
 
