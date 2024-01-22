@@ -1,5 +1,6 @@
+require 'roo'
+
 module Xlsx2exif
-  require 'roo'
   class ReadTable
     def initialize(path)
       @path = path
