@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    mini_exiftool (2.10.4)
     nokogiri (1.16.0-x86_64-linux)
       racc (~> 1.4)
     racc (1.7.3)
@@ -13,6 +14,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  mini_exiftool
   roo
 
 BUNDLED WITH
