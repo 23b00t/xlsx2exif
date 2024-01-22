@@ -8,8 +8,11 @@ Reads the exif keys from the first row and the filenames of the pictures from th
 ### Example:
 
   |   A     |   B   |   C   |
+
 1 |         |artist | place |
+
 2 | 1.jpg   |  ann  | berlin|
+
 3 |house.jpg|  ron  |       |
 
 Will do:
