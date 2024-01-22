@@ -4,7 +4,7 @@ require_relative 'read_table'
 module Xlsx2exif
   # The PhotoProcessor class orchestrates the processing of photos based on EXIF data from an Excel table.
   class PhotoProcessor
-    attr_reader :no_photo_found, :exif_data
+    attr_reader :no_photo_found, :exif_data, :saving_errors
     # Initializes a new instance of the PhotoProcessor class.
     #
     # @param table_path [String] The path to the Excel table file.
@@ -12,6 +12,7 @@ module Xlsx2exif
       @table_path = table_path
       @exif_data = {}
       @no_photo_found = []
+      @saving_errors = []
     end
 
     # Runs the photo processing workflow by reading EXIF data from the Excel table
@@ -54,7 +55,7 @@ module Xlsx2exif
         exif.public_send("#{tag}=", value) unless value.nil? || value.empty?
       end
 
-      exif.save
+      @saving_errors << "Problem saving data to photo #{key}" unless exif.save
 
       @exif_data.delete(key)
     end

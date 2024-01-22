@@ -34,11 +34,20 @@ puts "\n\n"
 if processor.no_photo_found.empty? && processor.exif_data.empty?
   puts "\e[32mDone successfully! :)\e[0m"
 else
-  puts "\e[32mFinished without errors,\e[0m\e[33m but not all data could be processed:\e[0m"
+  puts "\e[32mFinished,\e[0m\e[33m but not all data could be processed:\e[0m"
 
-  puts "\e[31mPhotos without associated data:\e[0m"
-  puts processor.no_photo_found.join(' ') unless processor.no_photo_found.empty?
+  unless processor.no_photo_found.empty?
+    puts "\e[31mPhotos without associated data:\e[0m"
+    puts processor.no_photo_found.join(', ')
+  end
   puts ""
-  puts "\e[31mData without associated photos:\e[0m"
-  puts processor.exif_data.keys.join(' ') unless processor.exif_data.empty?
+  unless processor.exif_data.empty?
+    puts "\e[31mData without associated photos:\e[0m"
+    puts processor.exif_data.keys.join(', ')
+  end
+  puts ""
+  unless processor.saving_errors.empty?
+    puts "\e[31mSaving errors:\e[0m"
+    puts processor.saving_errors
+  end
 end
