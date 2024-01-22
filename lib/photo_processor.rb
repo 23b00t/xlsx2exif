@@ -4,12 +4,14 @@ require_relative 'read_table'
 module Xlsx2exif
   # The PhotoProcessor class orchestrates the processing of photos based on EXIF data from an Excel table.
   class PhotoProcessor
+    attr_reader :no_photo_found, :exif_data
     # Initializes a new instance of the PhotoProcessor class.
     #
     # @param table_path [String] The path to the Excel table file.
     def initialize(table_path)
       @table_path = table_path
       @exif_data = {}
+      @no_photo_found = []
     end
 
     # Runs the photo processing workflow by reading EXIF data from the Excel table
@@ -43,7 +45,7 @@ module Xlsx2exif
     # @param photo_path [String] The path to the photo file.
     def process_photo(photo_path)
       key = File.basename(photo_path)
-      return unless @exif_data[key]
+      @no_photo_found << key && return unless @exif_data[key]
 
       exif = MiniExiftool.new(photo_path)
 
@@ -52,6 +54,8 @@ module Xlsx2exif
       end
 
       exif.save
+
+      @exif_data.delete(key)
     end
   end
 end
