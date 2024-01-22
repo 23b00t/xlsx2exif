@@ -45,12 +45,13 @@ module Xlsx2exif
     # @param photo_path [String] The path to the photo file.
     def process_photo(photo_path)
       key = File.basename(photo_path)
+
       @no_photo_found << key && return unless @exif_data[key]
 
       exif = MiniExiftool.new(photo_path)
 
       @exif_data[key].each do |tag, value|
-        exif.public_send("#{tag}=", value)
+        exif.public_send("#{tag}=", value) unless value.nil? || value.empty?
       end
 
       exif.save

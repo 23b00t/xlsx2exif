@@ -1,12 +1,24 @@
 # xlsx2exif
 
-Xlsx2Exif is a Ruby application for updating EXIF data in photos based on information stored in an Excel spreadsheet.
+xlsx2exif is a Ruby application for updating EXIF data in photos based on information stored in an Excel spreadsheet.
 Gives you status feedback, and an report on unmatched data or complet success otherwise.
 Works only with .xlsx
+Reads the exif keys from the first row and the filenames of the pictures from the first column.
+
+### Example:
+
+  |   A     |   B   |   C   |
+1 |         |artist | place |
+2 | 1.jpg   |  ann  | berlin|
+3 |house.jpg|  ron  |       |
+
+Will do:
+attach exif data to 1.jpg, artist: ann, place: berlin
+attach exif data to house.jpg, artist: ron
 
 ## Installation
 
-### Clone the Xlsx2Exif repository:
+### Clone the xlsx2exif repository:
 
 git clone https://github.com/yourusername/Xlsx2Exif.git
 cd Xlsx2Exif
