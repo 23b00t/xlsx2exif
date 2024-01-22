@@ -22,8 +22,10 @@ attach exif data to house.jpg, artist: ron
 
 ### Clone the xlsx2exif repository:
 
+```bash
 git clone https://github.com/yourusername/Xlsx2Exif.git
 cd Xlsx2Exif
+```
 
 ### Dependencies
 
