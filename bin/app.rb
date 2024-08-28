@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require_relative '../lib/photo_processor'
 
@@ -6,7 +7,7 @@ table_path = ARGV[0] # Path to the XLSX file
 folder_path = ARGV[1] # Path to the folder containing photos
 
 if table_path.nil? || folder_path.nil?
-  puts "Usage: bin/app.rb path/to/table.xlsx path/to/photos_folder"
+  puts 'Usage: bin/app.rb path/to/table.xlsx path/to/photos_folder'
   exit(1)
 end
 
@@ -40,12 +41,12 @@ else
     puts "\e[31mPhotos without associated data:\e[0m"
     puts processor.no_photo_found.join(', ')
   end
-  puts ""
+  puts ''
   unless processor.exif_data.empty?
     puts "\e[31mData without associated photos:\e[0m"
     puts processor.exif_data.keys.join(', ')
   end
-  puts ""
+  puts ''
   unless processor.saving_errors.empty?
     puts "\e[31mSaving errors:\e[0m"
     puts processor.saving_errors

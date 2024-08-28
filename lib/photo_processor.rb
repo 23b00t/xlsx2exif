@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'mini_exiftool'
 require_relative 'read_table'
 
@@ -5,6 +7,7 @@ module Xlsx2exif
   # The PhotoProcessor class orchestrates the processing of photos based on EXIF data from an Excel table.
   class PhotoProcessor
     attr_reader :no_photo_found, :exif_data, :saving_errors
+
     # Initializes a new instance of the PhotoProcessor class.
     #
     # @param table_path [String] The path to the Excel table file.

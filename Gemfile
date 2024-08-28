@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 # Gemfile
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 group :development, :test do
-  gem 'roo'
   gem 'mini_exiftool'
+  gem 'roo'
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'roo'
 
 module Xlsx2exif
@@ -18,7 +20,7 @@ module Xlsx2exif
 
     # Open the Excel file
     def open_file
-      file_path = File.expand_path(@path, __dir__)
+      File.expand_path(@path, __dir__)
 
       raise "File not found: #{@path}" unless File.exist?(@path)
 
@@ -38,7 +40,7 @@ module Xlsx2exif
         values = {}
 
         @headers.each_with_index do |header, index|
-          values[header] = row[index + 1] || ""
+          values[header] = row[index + 1] || ''
         end
 
         @data[key] = values
@@ -52,7 +54,7 @@ module Xlsx2exif
 
     # Initialize the headers for processing
     def init_headers
-      @headers = @file.row(1)[1..-1]
+      @headers = @file.row(1)[1..]
     end
   end
 end
